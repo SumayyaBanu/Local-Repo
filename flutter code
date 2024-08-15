@@ -1,0 +1,64 @@
+-void main() {
+  runApp(const MyResume());
+}
+
+class MyResume extends StatefulWidget {
+  const MyResume({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyResume> {
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false, home: HomePage());
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blueGrey,
+          centerTitle: true,
+          title: const Text(
+            "Resume",
+            style: TextStyle(
+              fontSize: 30.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+        ),
+        body: const SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(14.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                PersonalDetailsSection(),
+                EducationDetailsSection(),
+                MiniProjectDetailsSection(),
+                CourseDetailsSection(),
+                SkillsDetailsSection(),
+                GoalsDetailsSection(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
